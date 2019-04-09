@@ -1,0 +1,14 @@
+.img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.q-card {
+  max-width: 290px;
+  margin: 2px;
+  vertical-align: top;
+  flex-shrink: 0;
+}
