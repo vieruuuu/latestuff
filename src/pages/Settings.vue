@@ -1,6 +1,18 @@
 <template>
   <q-page padding class="text-body1 block">
     <q-list>
+      <q-item-label header>Privacy</q-item-label>
+      <q-item :dark="$root.useBlackTheme" tag="label">
+        <q-item-section>
+          <q-item-label>
+            Send Anonymous data through Google Analytics
+          </q-item-label>
+        </q-item-section>
+        <q-item-section avatar>
+          <q-toggle v-model="$root.useAnalytics" />
+        </q-item-section>
+      </q-item>
+      <q-separator :dark="$root.useBlackTheme" spaced />
       <q-item-label header>Ads</q-item-label>
       <q-item :dark="$root.useBlackTheme" tag="label">
         <q-item-section>
@@ -36,7 +48,7 @@
         tag="label"
       >
         <q-item-section>
-          <q-item-label>RBG speed (ms)</q-item-label>
+          <q-item-label>RBG color change delay (ms)</q-item-label>
         </q-item-section>
         <q-item-section v-if="!$q.screen.lt.sm">
           <q-slider
@@ -208,6 +220,9 @@ export default {
     },
     "$root.useAds"(val) {
       this.$q.localStorage.set("useAds", val);
+    },
+    "$root.useAnalytics"(val) {
+      this.$q.localStorage.set("useAnalytics", val);
     }
   }
 };

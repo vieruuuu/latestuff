@@ -15,7 +15,7 @@ import errorComp from "./errorComp";
 
 const config = component => ({
   // The component to load (should be a Promise)
-  component: async () => loading,
+  component,
   // A component to use while the async component is loading
   loading,
   // A component to use if the load fails

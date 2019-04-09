@@ -43,10 +43,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.0.0",
     "fastify": "^2.1.0",
-    "fastify-compress": "^0.8.1",
-    "fastify-static": "^2.4.0",
     "ftp-deploy": "^2.3.2",
-    "iltorb": "^2.4.2",
     "prettier": "^1.16.4",
     "redis-fast-driver": "^2.1.2",
     "strip-ansi": "=3.0.1"

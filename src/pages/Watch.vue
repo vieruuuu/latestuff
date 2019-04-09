@@ -38,7 +38,11 @@
               <h5>The Punisher</h5>
             </q-item>
             <q-item class="q-col-gutter-x-md text-body1">
-              <p>An undercover FBI agent becomes a vigilante assassin and sets out to unleash his wrath upon the corrupt businessman who slaughtered his entire family at a reunion.</p>
+              <p>
+                An undercover FBI agent becomes a vigilante assassin and sets
+                out to unleash his wrath upon the corrupt businessman who
+                slaughtered his entire family at a reunion.
+              </p>
             </q-item>
           </q-list>
         </div>
@@ -62,11 +66,11 @@
                 <q-item-section thumbnail>
                   <img
                     :style="{
-                  width: 92.5 + 'px',
-                  height: 139 + 'px'
-                }"
+                      width: 92.5 + 'px',
+                      height: 139 + 'px'
+                    }"
                     :src="`https://image.tmdb.org/t/p/w185/${item.cover}`"
-                  >
+                  />
                 </q-item-section>
                 <q-item-section>
                   <h6>{{ item.title }}</h6>
@@ -76,12 +80,18 @@
                   </p>
                 </q-item-section>
                 <q-item-section side top>
-                  <q-item-label class="text-primary" caption>{{ item.type }}</q-item-label>
+                  <q-item-label class="text-primary" caption>{{
+                    item.type
+                  }}</q-item-label>
                 </q-item-section>
               </q-item>
             </q-list>
           </q-expansion-item>
-          <q-expansion-item icon="dehaze" label="Recomended movies" :value="type === 'movie'">
+          <q-expansion-item
+            icon="dehaze"
+            label="Recomended movies"
+            :value="type === 'movie'"
+          >
             <q-list :dark="$root.useBlackTheme">
               <q-item
                 class="q-col-gutter-x-md"
@@ -93,11 +103,11 @@
                 <q-item-section thumbnail>
                   <img
                     :style="{
-                  width: 92.5 + 'px',
-                  height: 139 + 'px'
-                }"
+                      width: 92.5 + 'px',
+                      height: 139 + 'px'
+                    }"
                     :src="`https://image.tmdb.org/t/p/w185/${item.cover}`"
-                  >
+                  />
                 </q-item-section>
                 <q-item-section>
                   <h6>{{ item.title }}</h6>
@@ -107,7 +117,9 @@
                   </p>
                 </q-item-section>
                 <q-item-section side top>
-                  <q-item-label class="text-primary" caption>{{ item.type }}</q-item-label>
+                  <q-item-label class="text-primary" caption>{{
+                    item.type
+                  }}</q-item-label>
                 </q-item-section>
               </q-item>
             </q-list>

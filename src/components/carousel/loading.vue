@@ -1,18 +1,13 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper fixed-center text-center">
     <div>
-      <h2>Loading {{ text || "movies" }}...</h2>
+      <h5>Loading {{ text || "movies" }}...</h5>
     </div>
-    <q-spinner
-       color="primary"
-       size="4em"
-    />
+    <q-spinner color="primary" size="4em" />
   </div>
 </template>
 
 <script>
-import "./loading.css";
-
 export default {
   props: ["text"]
 };

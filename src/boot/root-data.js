@@ -31,22 +31,23 @@ export default async ({ app, router, Vue }) => {
   };
 
   app.created = async function() {
-    
     if (this.useBlackTheme) window.JSEDarkMode = 1;
 
     if (this.useAds) {
       window.JSENoMining = 1;
     }
 
+    window.useAnalytics = this.useAnalytics;
+
     this.setBrand("primary", this.primaryColor);
     this.$q.addressbarColor.set(this.primaryColor);
     if (this.useRGBAccentColor) {
       this.RGBMagic();
     }
-    const res = await fetch(`https://${location.hostname}/movies`)
-    const categories = await res.text()
-    
-    console.log(categories)
+    const res = await fetch(`https://${location.hostname}/api`);
+    const categories = await res.text();
+
+    console.log(categories);
     // this.categories = categories
   };
 
