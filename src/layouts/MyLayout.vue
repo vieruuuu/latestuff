@@ -32,9 +32,24 @@
             </q-avatar> -->
             LateStuff
           </q-toolbar-title>
+          <q-space v-if="!$q.screen.lt.md" />
+          <q-input
+            v-if="!$q.screen.lt.md && $route.path != '/search'"
+            style="width: 29%;"
+            :dark="$root.useBlackTheme"
+            filled
+            v-model="$root.searchVal"
+            label="Search movies"
+          />
+          <q-space v-if="!$q.screen.lt.md" />
+          <!-- lazy-rules
+            :rules="[
+              val => (val !== null && val !== '') || 'Please type your age',
+              val => (val > 0 && val < 100) || 'Please type a real age'
+            ]" -->
           <q-tabs no-caps narrow-indicator v-if="!$q.screen.lt.md" shrink>
             <q-route-tab
-              v-for="item in navigation"
+              v-for="item in navigationTopBar"
               :key="item.key"
               :label="item.name"
               :to="item.to"
@@ -93,7 +108,8 @@ export default {
 
   data() {
     return {
-      navigation
+      navigation,
+      navigationTopBar: navigation.filter(item => item.to !== "/search")
     };
   },
   mounted() {

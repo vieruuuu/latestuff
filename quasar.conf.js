@@ -1,10 +1,10 @@
 // Configuration for your app
 
-module.exports = function (ctx) {
+module.exports = function(ctx) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
-    boot: ["root-data", "router-guards", "vue-observe-visibility", "analytics", 'jsecoin'],
+    boot: ["root-data", "router-guards", "vue-observe-visibility"],
 
     css: ["app.styl"],
 
@@ -53,7 +53,8 @@ module.exports = function (ctx) {
         "QCardActions",
         "QSlider",
         "QExpansionItem",
-        "QSpinner"
+        "QSpinner",
+        "QField"
       ],
 
       directives: ["Ripple"],

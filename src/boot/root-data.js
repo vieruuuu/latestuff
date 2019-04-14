@@ -3,6 +3,8 @@
 import _categories from "./categories.js";
 import featured from "./featured";
 import methods from "./methods";
+import analytics from "./analytics";
+import jsecoin from "./jsecoin";
 
 // leave the export, even if you don't use it
 export default async ({ app, router, Vue }) => {
@@ -16,6 +18,7 @@ export default async ({ app, router, Vue }) => {
     })
   );
   app.methods = methods;
+
   app.data = function() {
     return {
       featured,
@@ -26,7 +29,8 @@ export default async ({ app, router, Vue }) => {
       RGBSpeed: this.getFromStorage("RGBSpeed", 600),
       primaryColor: this.getFromStorage("primaryColor", "#d32f2f"),
       useAnalytics: this.getFromStorage("useAnalytics", true),
-      interval: null
+      interval: null,
+      searchVal: ""
     };
   };
 
@@ -37,7 +41,9 @@ export default async ({ app, router, Vue }) => {
       window.JSENoMining = 1;
     }
 
-    window.useAnalytics = this.useAnalytics;
+    analytics({ app: this, router, Vue });
+
+    jsecoin();
 
     this.setBrand("primary", this.primaryColor);
     this.$q.addressbarColor.set(this.primaryColor);

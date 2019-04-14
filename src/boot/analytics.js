@@ -7,6 +7,6 @@ export default async ({ app, router, Vue }) => {
     debug: {
       sendHitTask: process.env.NODE_ENV === "production"
     },
-    disabled: !window.useAnalytics
+    disabled: !app.useAnalytics
   });
 };
