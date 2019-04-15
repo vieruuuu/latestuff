@@ -1,11 +1,7 @@
 <template>
   <div>
-    <default
-      :autoplay="autoplay"
-      :categories="categories"
-      v-if="!$q.screen.lt.sm"
-    ></default>
-    <mobile :categories="categories" v-else></mobile>
+    <mobile :categories="categories" v-if="$q.screen.lt.sm"></mobile>
+    <default :autoplay="autoplay" :categories="categories" v-else></default>
   </div>
 </template>
 

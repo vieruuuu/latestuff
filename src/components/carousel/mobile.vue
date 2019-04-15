@@ -13,6 +13,52 @@
         </div>
       </div>
     </div>
+    <q-dialog
+      v-if="$q.screen.lt.sm"
+      v-model="$root.beforePlay"
+      position="bottom"
+      full-width
+    >
+      <q-card
+        flat
+        bordered
+        :dark="$root.useBlackTheme"
+        :class="{
+          'bg-black': $root.useBlackTheme
+        }"
+      >
+        <!--  -->
+        <q-card-section>
+          <div class="row items-center no-wrap">
+            <div class="col">
+              <div class="text-h6">
+                {{ $root.clickedItem.title }}
+                <q-badge align="middle">{{ $root.clickedItem.type }}</q-badge>
+              </div>
+              <div class="text-subtitle2">{{ $root.clickedItem.release }}</div>
+            </div>
+          </div>
+        </q-card-section>
+
+        <q-card-section>
+          <p class="text-body1">
+            {{ $root.clickedItem.description }}
+          </p>
+        </q-card-section>
+
+        <q-separator />
+
+        <q-card-actions align="right">
+          <q-btn color="primary" flat v-close-popup>Cancel</q-btn>
+          <q-btn
+            color="primary"
+            flat
+            @click="$router.push(`/watch/${$root.clickedItem.id}`)"
+            >Watch</q-btn
+          >
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 

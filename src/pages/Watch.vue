@@ -6,17 +6,17 @@
           <iframe
             v-if="$root.useAds || true"
             class="resp-iframe"
-            sandbox="allow-scripts allow-forms"
             width="1000"
             height="600"
-            src="https://www.rapidvideo.com/e/G16425EHSN"
+            src="https://www.rapidvideo.com/e/G23N4KHAKP"
             frameborder="0"
             gesture="media"
             allow="encrypted-media"
             allowfullscreen
             mozallowfullscreen="true"
             webkitallowfullscreen="true"
-          ></iframe>
+          />
+          <!-- sandbox="allow-scripts allow-forms" -->
           <q-media-player
             v-else
             type="video"

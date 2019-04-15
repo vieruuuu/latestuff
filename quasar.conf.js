@@ -54,10 +54,11 @@ module.exports = function(ctx) {
         "QSlider",
         "QExpansionItem",
         "QSpinner",
-        "QField"
+        "QField",
+        "QBadge"
       ],
 
-      directives: ["Ripple"],
+      directives: ["Ripple", "ClosePopup"],
 
       // Quasar plugins
       plugins: ["Notify", "LocalStorage", "AddressbarColor", "LoadingBar"],

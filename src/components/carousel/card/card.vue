@@ -1,6 +1,6 @@
 <template>
   <q-card
-    @click="mobile ? $router.push(`/watch/${item.id}`) : null"
+    @click="mobile ? beforePlay(item) : null"
     @dblclick="mobile ? null : $router.push(`/watch/${item.id}`)"
     v-ripple="!mobile"
     :class="{ 'bg-black': $root.useBlackTheme }"
@@ -31,6 +31,12 @@
 
 <script>
 export default {
-  props: ["mobile", "item"]
+  props: ["mobile", "item"],
+  methods: {
+    beforePlay(item) {
+      this.$set(this.$root, "clickedItem", item);
+      this.$root.beforePlay = true;
+    }
+  }
 };
 </script>

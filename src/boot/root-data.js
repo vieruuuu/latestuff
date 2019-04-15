@@ -30,7 +30,9 @@ export default async ({ app, router, Vue }) => {
       primaryColor: this.getFromStorage("primaryColor", "#d32f2f"),
       useAnalytics: this.getFromStorage("useAnalytics", true),
       interval: null,
-      searchVal: ""
+      searchVal: "",
+      beforePlay: false,
+      clickedItem: {}
     };
   };
 

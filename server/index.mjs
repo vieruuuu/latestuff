@@ -1,5 +1,5 @@
 import fastify from "fastify";
-import fastifyCors from 'fastify-cors';
+import fastifyCors from "fastify-cors";
 import Redis from "redis-fast-driver";
 
 import api from "./lib/api";
@@ -19,13 +19,10 @@ const app = fastify();
 const PORT = 3000;
 
 app.register(fastifyCors, {
-  origin: [
-    /latestuff\.net:8080$/,
-    /www\.latestuff\.net:8080$/
-  ]
-})
+  origin: [/latestuff\.net:8080$/, /www\.latestuff\.net:8080$/]
+});
 
-app.register(api)
+app.register(api);
 
 async function main() {
   try {
