@@ -12,7 +12,7 @@
     "dev": "quasar dev",
     "build": "quasar build",
     "server": "node --experimental-modules server/index.mjs",
-    "redis-server": "./server/redis-server"
+    "redis-server": "./server/redis-server ./server/redis.conf"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
