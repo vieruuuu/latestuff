@@ -55,7 +55,8 @@ module.exports = function(ctx) {
         "QExpansionItem",
         "QSpinner",
         "QField",
-        "QBadge"
+        "QBadge",
+        "QScrollArea"
       ],
 
       directives: ["Ripple", "ClosePopup"],

@@ -24,7 +24,7 @@
         >
           <q-toolbar-title
             @click="$router.push('/')"
-            class="cursor-pointer text-h5"
+            class="cursor-pointer text-weight-bold text-h5"
             :class="{ 'text-center': $q.screen.lt.md }"
           >
             <!-- <q-avatar>
@@ -34,7 +34,8 @@
           </q-toolbar-title>
           <q-space v-if="!$q.screen.lt.md" />
           <q-input
-            v-if="!$q.screen.lt.md && $route.path != '/search'"
+            @keyup.enter.native="e => $router.push(`/search/${e.target.value}`)"
+            v-if="!$q.screen.lt.md && $route.name != 'search'"
             style="width: 29%;"
             :dark="$root.useBlackTheme"
             filled
@@ -47,17 +48,43 @@
               val => (val !== null && val !== '') || 'Please type your age',
               val => (val > 0 && val < 100) || 'Please type a real age'
             ]" -->
-          <q-tabs no-caps narrow-indicator v-if="!$q.screen.lt.md" shrink>
-            <q-route-tab
-              v-for="item in navigationTopBar"
-              :key="item.key"
-              :label="item.name"
-              :to="item.to"
-              exact
-            />
+          <q-tabs
+            no-caps
+            v-if="!$q.screen.lt.md"
+            shrink
+            class="text-grey"
+            active-color="primary"
+          >
+            <q-route-tab label="Home" to="/" exact />
+            <q-route-tab label="Trending" to="/trending" exact />
           </q-tabs>
+          <q-btn
+            :class="{ 'text-grey': !drawerRight, 'text-primary': drawerRight }"
+            v-if="!$q.screen.lt.md"
+            flat
+            @click="drawerRight = !drawerRight"
+            round
+            dense
+            icon="menu"
+          />
         </q-toolbar>
       </q-header>
+
+      <q-drawer
+        side="right"
+        v-model="drawerRight"
+        bordered
+        :width="300"
+        :breakpoint="500"
+        :content-class="{
+          'bg-black': $root.useBlackTheme,
+          'bg-white': !$root.useBlackTheme
+        }"
+      >
+        <q-scroll-area class="fit">
+          <more />
+        </q-scroll-area>
+      </q-drawer>
 
       <q-footer
         style="border-width: 2px"
@@ -79,14 +106,10 @@
           class="text-grey"
           dense
         >
-          <q-route-tab
-            v-for="item in navigation"
-            :key="item.key"
-            :label="item.name"
-            :to="item.to"
-            :icon="item.icon"
-            exact
-          />
+          <q-route-tab label="Home" to="/" icon="home" exact />
+          <q-route-tab label="Trending" to="/trending" icon="flash_on" exact />
+          <q-route-tab label="Search" to="/search" icon="search" exact />
+          <q-route-tab label="More" to="/more" icon="menu" exact />
         </q-tabs>
       </q-footer>
 
@@ -101,15 +124,14 @@
 
 <script>
 import "./../css/animations.css";
-import navigation from "./navigation.js";
+import more from "./../components/more";
 
 export default {
   name: "LayoutDefault",
-
+  components: { more },
   data() {
     return {
-      navigation,
-      navigationTopBar: navigation.filter(item => item.to !== "/search")
+      drawerRight: false
     };
   },
   mounted() {

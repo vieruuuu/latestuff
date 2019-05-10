@@ -1,4 +1,6 @@
 import DefaultLayout from "layouts/MyLayout.vue";
+import SearchComponent from "pages/Search.vue";
+import MoreComponent from "pages/More.vue";
 
 const routes = [
   {
@@ -18,7 +20,12 @@ const routes = [
       {
         path: "/search",
         name: "search",
-        component: () => import("pages/Search.vue")
+        component: SearchComponent
+      },
+      {
+        path: "/search/:text",
+        name: "search2",
+        component: () => import("pages/Search2.vue")
       },
       {
         path: "/settings",
@@ -29,6 +36,11 @@ const routes = [
         path: "/about",
         name: "about",
         component: () => import("pages/About.vue")
+      },
+      {
+        path: "/more",
+        name: "more",
+        component: MoreComponent
       },
       {
         path: "/watch/:id",
