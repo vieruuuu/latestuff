@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["2d207d33"],{a1d1:function(n,a,e){"use strict";e.r(a);var t=function(){var n=this,a=n.$createElement,e=n._self._c||a;return e("q-page",{attrs:{padding:""}},[e("p",[n._v("This is an about page")])])},s=[],p={},u=p,i=e("2877"),l=Object(i["a"])(u,t,s,!1,null,null,null);a["default"]=l.exports}}]);
